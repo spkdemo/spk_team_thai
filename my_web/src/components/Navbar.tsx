@@ -1,14 +1,26 @@
+// src/components/Navbar.tsx
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './Navbar.css';
 
-function Navbar() {
+interface MenuItem {
+  id: number;
+  name: string;
+  url: string;
+}
+
+interface NavbarProps {
+  menuItems: MenuItem[];
+  onMenuItemSelect: (menuItem: MenuItem) => void;
+}
+
+function Navbar({ menuItems, onMenuItemSelect }: NavbarProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  // ใช้ useEffect เพื่อเพิ่ม/ลบ class ให้กับ body เมื่อ Sidebar เปิด/ปิด
   useEffect(() => {
     if (isSidebarOpen) {
       document.body.classList.add('body-with-sidebar');
@@ -31,9 +43,16 @@ function Navbar() {
       {/* Sidebar */}
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <ul className="sidebar-menu">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          {menuItems.map((item) => (
+            <li key={item.id}>
+              <Link 
+                to={item.url} 
+                onClick={() => onMenuItemSelect(item)} // เมื่อคลิกให้ส่งข้อมูลไปที่ App.tsx
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </>
