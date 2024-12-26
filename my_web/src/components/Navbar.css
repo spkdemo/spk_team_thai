@@ -1,0 +1,88 @@
+/* src/components/Navbar.css */
+
+/* Navbar */
+.navbar {
+    background-color: #282c34;
+    color: white;
+    /* padding: 1rem; */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Navbar อยู่ด้านบนสุด */
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  
+  .navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .hamburger {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 60px; /* ตั้งให้ Sidebar อยู่ใต้ Navbar */
+    left: 0;
+    width: 250px;
+    height: calc(100% - 60px); /* ความสูงของ Sidebar จะเป็นพื้นที่ที่เหลือจาก Navbar */
+    background-color: #333;
+    color: white;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out; /* ใช้ transform เพื่อแสดง/ซ่อน Sidebar */
+    transform: translateX(-100%); /* ซ่อน Sidebar ในกรณีที่ยังไม่เปิด */
+    z-index: 999; /* Sidebar อยู่ใน layer เดียวกันกับ Navbar */
+  }
+  
+  .sidebar.open {
+    transform: translateX(0); /* เมื่อเปิด Sidebar จะเลื่อนไปยังตำแหน่งที่ต้องการ */
+  }
+  
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-menu li {
+    padding: 1rem;
+    border-bottom: 1px solid #444;
+  }
+  
+  .sidebar-menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .sidebar-menu a:hover {
+    background-color: #444;
+  }
+  
+  /* Body เมื่อ Sidebar เปิด */
+  body.body-with-sidebar {
+    overflow-x: hidden; /* ป้องกันการเลื่อนในแนวนอน */
+    padding-left: 250px; /* ลดความกว้างของ body ให้พอดีกับ sidebar */
+    transition: padding-left 0.3s ease-in-out; /* เพิ่มแอนิเมชั่นให้ body */
+  }
+  
+  /* เพิ่มแอนิเมชั่น */
+  body {
+    transition: padding-left 0.3s ease-in-out;
+  }
+  
