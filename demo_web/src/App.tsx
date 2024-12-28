@@ -1,17 +1,33 @@
 // src/App.tsx
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import Navbar from './components/navbar/Navbar.tsx';
+import Navbar from './components/navbar/Navbar';
 
-function App() {
+const App = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.classList.add('body-with-sidebar');
+    } else {
+      document.body.classList.remove('body-with-sidebar');
+    }
+  }, [isSidebarOpen]);
+
   return (
     <div>
-      <Navbar />
-      <div style={{ paddingTop: '64px' }}>
-        <h1>Welcome to MyApp</h1>
-        <p>This is your main content area.</p>
+      <Navbar setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen} />
+
+      <div
+        className={`content ${isSidebarOpen ? 'content-with-sidebar' : ''}`}
+      >
+        {/* Main content */}
+        <h1>Content goes here</h1>
+        {/* You can add other content here */}
       </div>
     </div>
   );
-}
+};
 
 export default App;
+
