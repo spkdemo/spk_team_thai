@@ -60,9 +60,42 @@ const Navbar = ({ setIsSidebarOpen, isSidebarOpen }: NavbarProps) => {
       >
         {/* Sidebar content as a column layout */}
         <Box sx={{ padding: 2, display: 'flex', flexDirection: 'column' }}>
-          <Button color="inherit">Home</Button>
-          <Button color="inherit">About</Button>
-          <Button color="inherit">Contact</Button>
+            <Button color="inherit" sx={{ 
+                textAlign: 'left', 
+                padding: '10px', 
+                '&:focus': {
+                outline: 'none', // Remove outline when focused
+                },
+                '&:active': {
+                backgroundColor: 'transparent', // No background color when button is active
+                },
+            }}>
+            Home
+            </Button>
+            <Button color="inherit" sx={{ 
+                textAlign: 'left', 
+                padding: '10px', 
+                '&:focus': {
+                outline: 'none', // Remove outline when focused
+                },
+                '&:active': {
+                backgroundColor: 'transparent', // No background color when button is active
+                },
+            }}>
+                About
+            </Button>
+            <Button color="inherit" sx={{ 
+                textAlign: 'left', 
+                padding: '10px', 
+                '&:focus': {
+                outline: 'none', // Remove outline when focused
+                },
+                '&:active': {
+                backgroundColor: 'transparent', // No background color when button is active
+                },
+            }}>
+                Contact
+            </Button>
         </Box>
       </Box>
     </>
