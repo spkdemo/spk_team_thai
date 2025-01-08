@@ -26,11 +26,7 @@ body.body-with-sidebar {
 
 
 /* เมื่อหน้าจอเล็กกว่า 600px, ปรับ Sidebar ให้เล็กลง */
-@media (max-width: 600px) {
-  .MuiBox-root {
-    width: 200px; /* ปรับความกว้างของ Sidebar */
-  }
-}
+
 
 .content-with-sidebar {
   margin-left: 250px;

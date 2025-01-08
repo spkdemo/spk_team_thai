@@ -73,10 +73,12 @@ const Navbar = ({ setIsSidebarOpen, isSidebarOpen }: NavbarProps) => {
 
   return (
     <>
-      <AppBar position="fixed" color="primary">
+      <AppBar position="fixed" 
+              color="primary"
+              sx={{height: '64px',}}>
         <Toolbar>
           <IconButton
-            size="large"
+            size="small"
             edge="start"
             color="inherit"
             aria-label="menu"
