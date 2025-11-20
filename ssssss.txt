@@ -1,5 +1,3 @@
-<<<<<<< HEAD
 dfggvbvcvccvcvvvcvc
-=======
 Hello
->>>>>>> origin/v2
+
